@@ -1,0 +1,32 @@
+### Ejecutar npm start antes de enviar estas peticiones (REST Client o Postman)
+@baseUrl = http://localhost:3000
+
+### Crear (201). El ID devuelto se usa en las siguientes peticiones.
+POST {{baseUrl}}/api/productos
+Content-Type: application/json
+
+{"nombre":"Café Espresso","precio":9.9,"stock":10,"categoria":"Cafés","descripcion":"Café caliente"}
+
+### Listar (200)
+GET {{baseUrl}}/api/productos?page=1&limit=20
+
+### Consultar (200 o 404)
+GET {{baseUrl}}/api/productos/1
+
+### Reemplazar (200)
+PUT {{baseUrl}}/api/productos/1
+Content-Type: application/json
+
+{"nombre":"Café Latte","precio":12.5,"stock":8,"categoria":"Cafés","descripcion":"Café con leche"}
+
+### Actualizar parcialmente (200)
+PATCH {{baseUrl}}/api/productos/1
+Content-Type: application/json
+
+{"stock":7}
+
+### Eliminar (200)
+DELETE {{baseUrl}}/api/productos/1
+
+### Recurso inexistente (404)
+GET {{baseUrl}}/api/productos/999999
